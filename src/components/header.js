@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import React from 'react';
 import Link from 'next/link';
 import { useSelectedLayoutSegment } from 'next/navigation';
@@ -27,14 +28,13 @@ const Header = () => {
             href="/"
             className="flex flex-row space-x-3 items-center justify-center md:hidden"
           >
-            <span className="h-7 w-7 bg-zinc-300 rounded-lg" />
-            <span className="font-bold text-xl flex">Logo</span>
+            <Image src="/images/xion1.png" width={75} height={40} alt="Xion1 Logo"/>
           </Link>
         </div>
 
         <div className="hidden md:block">
           <div className="h-8 w-8 rounded-full bg-zinc-300 flex items-center justify-center text-center">
-            <span className="font-semibold text-sm">HQ</span>
+            <span className="font-semibold text-sm">Rico</span>
           </div>
         </div>
       </div>

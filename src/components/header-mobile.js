@@ -62,7 +62,11 @@ const HeaderMobile = () => {
                     onClick={() => toggleOpen()}
                     className={`flex w-full text-2xl ${item.path === pathname ? 'font-bold' : ''}`}
                   >
-                    {item.title}
+                    <span className={`${
+                      (item.title === 'Partner' || item.title === 'Branding') ? 'text-blue-600' : ''
+                    }`}>
+                      {item.title}
+                    </span>
                   </Link>
                 </MenuItem>
               )}
@@ -139,7 +143,9 @@ const MenuItemWithSubMenu = ({ item, toggleOpen }) => {
           onClick={() => setSubMenuOpen(!subMenuOpen)}
         >
           <div className="flex flex-row justify-between w-full items-center">
-            <span className={`${pathname.includes(item.path) ? 'font-bold' : ''}`}>
+            <span className={`${
+              (item.title === 'Partner' || item.title === 'Branding') ? 'text-blue-600' : ''
+            } ${pathname.includes(item.path) ? 'font-bold' : ''}`}>
               {item.title}
             </span>
             <div className={`${subMenuOpen && 'rotate-180'}`}>

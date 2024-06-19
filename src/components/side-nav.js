@@ -49,7 +49,7 @@ const MenuItem = ({ item }) => {
             }`}
           >
             <div className="flex flex-row space-x-4 items-center">
-              <Image src={item.icon} alt={`${item.title} Icon`} width={24} height={24} /> {/* Adjust icon size here */}
+              <Image src={item.icon} alt={`${item.title} Icon`} width={22} height={20} /> {/* Adjust icon size here */}
               <span className="font-semibold text-xl text-blue-600 flex">{item.title}</span>
             </div>
             <div className={`${subMenuOpen ? 'rotate-180' : ''} flex`}>
@@ -57,7 +57,7 @@ const MenuItem = ({ item }) => {
             </div>
           </button>
           {subMenuOpen && (
-            <div className="my-2 ml-8 flex flex-col space-y-4">
+            <div className="my-2 ml-12 flex flex-col space-y-4">
               {item.subMenuItems?.map((subItem, idx) => (
                 <Link key={idx} href={subItem.path} className={`${subItem.path === pathname ? 'font-bold' : ''}`}>
                     <span>{subItem.title}</span>
@@ -73,7 +73,7 @@ const MenuItem = ({ item }) => {
             item.path === pathname ? 'bg-zinc-100' : ''
           }`}
         >
-          <Image src={item.icon} alt={`${item.title} Icon`} width={10} height={10} /> {/* Adjust icon size here */}
+          <Image src={item.icon} alt={`${item.title} Icon`} /> {/* Adjust icon size here */}
           <span className="font-semibold text-xl text-blue-600 flex">{item.title}</span>
         </Link>
       )}
