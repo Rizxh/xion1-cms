@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -13,9 +14,9 @@ const SideNav = () => {
       <div className="flex flex-col space-y-6 w-full">
         <Link
           href="/"
-          className="flex flex-row space-x-3 items-center justify-center md:justify-start md:px-6 border-b border-zinc-200 h-12 w-full"
+          className="flex flex-row space-x-3 items-center justify-center md:justify-start md:px-12 border-zinc-200 h-28 w-full"
         >
-          <img href=""></img>
+          <Image src="/images/xion1.png" width={120} height={40} alt="Xion1 Logo"/>
         </Link>
 
         <div className="flex flex-col space-y-2 md:px-6">
@@ -30,9 +31,9 @@ const SideNav = () => {
 
 export default SideNav;
 
-const MenuItem = ({ item }) => { // Receive 'item' as a prop
+const MenuItem = ({ item }) => {
   const pathname = usePathname();
-  const [subMenuOpen, setSubMenuOpen] = React.useState(false); // Using React.useState instead of useState
+  const [subMenuOpen, setSubMenuOpen] = React.useState(false);
   const toggleSubMenu = () => {
     setSubMenuOpen(!subMenuOpen);
   };
@@ -48,17 +49,15 @@ const MenuItem = ({ item }) => { // Receive 'item' as a prop
             }`}
           >
             <div className="flex flex-row space-x-4 items-center">
-              {/* Render item.icon */}
-              <span className="font-semibold text-xl flex">{item.title}</span>
+              <Image src={item.icon} alt={`${item.title} Icon`} width={24} height={24} /> {/* Adjust icon size here */}
+              <span className="font-semibold text-xl text-blue-600 flex">{item.title}</span>
             </div>
-
             <div className={`${subMenuOpen ? 'rotate-180' : ''} flex`}>
               <Icon icon="lucide:chevron-down" width="24" height="24" />
             </div>
           </button>
-
           {subMenuOpen && (
-            <div className="my-2 ml-12 flex flex-col space-y-4">
+            <div className="my-2 ml-8 flex flex-col space-y-4">
               {item.subMenuItems?.map((subItem, idx) => (
                 <Link key={idx} href={subItem.path} className={`${subItem.path === pathname ? 'font-bold' : ''}`}>
                     <span>{subItem.title}</span>
@@ -74,8 +73,8 @@ const MenuItem = ({ item }) => { // Receive 'item' as a prop
             item.path === pathname ? 'bg-zinc-100' : ''
           }`}
         >
-          {/* Render item.icon */}
-          <span className="font-semibold text-xl flex">{item.title}</span>
+          <Image src={item.icon} alt={`${item.title} Icon`} width={10} height={10} /> {/* Adjust icon size here */}
+          <span className="font-semibold text-xl text-blue-600 flex">{item.title}</span>
         </Link>
       )}
     </div>
