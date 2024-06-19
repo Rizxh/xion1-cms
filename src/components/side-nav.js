@@ -14,9 +14,9 @@ const SideNav = () => {
       <div className="flex flex-col space-y-6 w-full">
         <Link
           href="/"
-          className="flex flex-row space-x-3 items-center justify-center md:justify-start md:px-12 border-zinc-200 h-28 w-full"
+          className="flex flex-row space-x-3 items-center justify-center md:justify-start md:px-11 border-zinc-200 h-28 w-full"
         >
-          <Image src="/images/xion1.png" width={120} height={40} alt="Xion1 Logo"/>
+          <Image src="/images/xion1.png" width={150} height={40} alt="Xion1 Logo"/>
         </Link>
 
         <div className="flex flex-col space-y-2 md:px-6">
